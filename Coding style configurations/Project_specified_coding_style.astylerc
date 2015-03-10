@@ -1,0 +1,15 @@
+--indent-classes
+--indent-switches
+--indent-labels
+--indent-preprocessor
+--indent-col1-comments
+--break-blocks
+--pad-oper
+--unpad-paren
+--delete-empty-lines
+--add-brackets
+--convert-tabs
+--indent=tab=2
+--brackets=attach
+--align-pointer=middle
+--lineend=linux

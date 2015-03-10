@@ -1,0 +1,5 @@
+# Geany 整合是開發環境排除規則
+*.gch
+!.geanyprj
+	#Geany alternate project plugin
+ 

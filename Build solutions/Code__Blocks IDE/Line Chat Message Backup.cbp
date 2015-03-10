@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Line Chat Message Backup" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="$(TARGET_NAME)/Built software/$(PROJECT_NAME)" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="../.." />
+				<Option object_output="$(TARGET_NAME)/Object code/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-ansi" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="$(TARGET_NAME)/Built software/$(PROJECT_NAME)" prefix_auto="0" extension_auto="1" />
+				<Option working_dir="../.." />
+				<Option object_output="$(TARGET_NAME)/Object code/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option use_console_runner="0" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-ansi" />
+			<Add option="-fexceptions" />
+			<Add directory="../../Library headers" />
+		</Compiler>
+		<Linker>
+			<Add library="VCCL_pauseProgram" />
+			<Add library="VCCL_showSoftwareInfo" />
+			<Add library="VCCL_printSomething" />
+			<Add library="VCCL_Error_C" />
+			<Add directory="../../Libraries" />
+		</Linker>
+		<Unit filename="../../Source code/Project_specific_configurations/Debug.h" />
+		<Unit filename="../../Source code/Project_specific_configurations/GNU_gettext_library.h" />
+		<Unit filename="../../Source code/Project_specific_configurations/Math.h" />
+		<Unit filename="../../Source code/Project_specific_configurations/Max_value.h" />
+		<Unit filename="../../Source code/Project_specific_configurations/Software_info.h" />
+		<Unit filename="../../Source code/main.cpp" />
+		<Unit filename="../../Source code/main.hpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars set="locale_en_us" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

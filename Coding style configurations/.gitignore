@@ -1,0 +1,4 @@
+*.astylerc
+# 只將專案指定使用的 coding style 納入追蹤
+!Project_specified_coding_style*
+!.gitignore

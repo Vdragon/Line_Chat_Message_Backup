@@ -1,0 +1,3 @@
+[submodule "3rd party software/Vdragon_s_C_CPP_Libraries"]
+	path = 3rd party software/Vdragon_s_C_CPP_Libraries
+	url = https://github.com/Vdragon/Vdragon_s_C_CPP_Libraries.git

@@ -1,0 +1,18 @@
+#Eclipse整合式開發環境排除規則
+	#不排除Eclipse專案檔案
+!.project
+	#CDT Plugin排除規則
+		#不排除CDT專案檔案
+!.cproject
+		#排除CDT於建構專案時產生的檔案
+!.classpath
+!.*
+*.d
+*.mk
+	# PDT-specific
+.buildpath
+*.pydevproject
+.metadata	
+*~.nib
+local.properties
+.loadpath
