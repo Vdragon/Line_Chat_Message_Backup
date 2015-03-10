@@ -1,31 +1,10 @@
-## 「[通用軟體專案範本](https://github.com/Vdragon/Generic_Software_Project_Template)」內容未初始化說明<br />"[Generic Software Project Template](https://github.com/Vdragon/Generic_Software_Project_Template)" content not-initialized note
-如果您看到此段文字代表本檔案尚未被專案開發者自訂為他自己的版本，內容僅供參考。如果您是此專案的開發者請修改成自己需要的內容並移除下方水平線之上的所有內容。  
-If you see this paragraph means that this file is NOT customized to the project devloper's version and the content is for reference only.  If you're this project's developer please customize this file's content then remove all of the contents up from the horizontal line.
-
-### 如何使用？<br />How to use it?
-1. 將程式碼封存檔下載下來並解封裝
-2. 將 Generic_Software_Project_Template 目錄改名為您的專案名稱
-3. 以專案根目錄作為當前工作目錄(current working directory)在終端機中執行 bash Tools/initializeProject.bash.sh 初始化專案
-4. 依照您要開發的軟體類型將需要的檔案放到他們該在的目錄中
-	* 比方說，將本軟體所需要的函式庫與函式庫標頭檔放到 Libraries/ 與 Library headers/ 目錄中
-	* 您可以移除您不會用到的目錄
-5. 開始設計軟體 :)
-
-### 授權條款<br />License
-This project template is licensed as CC0.
-To the extent possible under law, Vdragon(Vdragon.Taiwan@gmail.com) has waived all copyright and related or neighboring rights to 通用軟體專案範本(Generic Software Project Template). This work is published from: 台灣(Taiwan). 
-
-### 已知問題<br />Known issues
-請瀏覽本專案的問題追蹤系統。  
-Please browse our project's issue tracker.  
-[https://github.com/Vdragon/Generic_Software_Project_Template/issues](https://github.com/Vdragon/Generic_Software_Project_Template/issues)
-
--------------------------------------
-# 〈專案名稱〉<br />&lt;Project_name&gt;
+# GNU/Linux alternative project inspired by hollowaysxp's 「免 root 異機備份 / 還原全攻略(For Android)」 
+<https://github.com/Vdragon/Line_Chat_Message_Backup>
 
 ## 這是什麼？<br />What is this?
 
 ## 本專案的智慧財產授權條款<br />Intellectual property license of this project
+N/A
 
 ## 軟體依賴關係<br />Software dependency
 使用本專案需要安裝下列軟體：
@@ -35,14 +14,6 @@ Please browse our project's issue tracker.
 
 ### GNU CoreUtils
 主要用於[專案會用到的工具/](Tools/) 目錄內的腳本程式
-
-### 標準Ｃ工具鍊(toolchain)（只適用於 C/C++ 語言專案）
-
-### Ｖ字龍的C、C++程式語言函式庫收集的 VCCL_showSoftwareInfo、VCCL_printSomething、VCCL_Error_C 跟 VCCL_pauseProgram 函式庫（只適用於 C/C++ 語言專案）
-<https://github.com/Vdragon/Vdragons_C_CPP_Libraries_Collection>  
-請將函式庫、函式庫標頭檔(library headers)安裝到系統預設搜索目錄，或是放在 [Libraries/](Libraries/) 、[Library headers/](Library headers/) 子目錄中再進行軟體建構。
-
-### 標準 Java 工具鍊（只適用於 Java 程式語言專案）
 
 其他需要的軟體請見各軟體建構解決方案的說明文件。
 
