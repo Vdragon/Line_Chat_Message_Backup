@@ -1,4 +1,4 @@
-# GNU/Linux alternative project inspired by hollowaysxp's 「免 root 異機備份 / 還原全攻略(For Android)」 
+# Cross-platform alternative project inspired by hollowaysxp's 「免 root 異機備份 / 還原全攻略(For Android)」 
 <https://github.com/Vdragon/Line_Chat_Message_Backup>
 
 ## 這是什麼？<br />What is this?
