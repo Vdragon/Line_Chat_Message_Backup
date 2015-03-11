@@ -1,8 +1,0 @@
-# Originally taken from 
-# https://github.com/github/gitignore
-# Which is MIT license
-CMakeCache.txt
-CMakeFiles/
-Makefile
-cmake_install.cmake
-install_manifest.txt
