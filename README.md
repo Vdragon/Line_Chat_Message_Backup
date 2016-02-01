@@ -33,9 +33,6 @@ This directory stores 3rd party software used by this project
 
 ### [專案會用到的工具/<br>Tools/](Tools/)
 專案相關的一些工具
-	
-### [Library headers/](Library headers/)
-專案使用的第三方函式庫之標頭(header)檔搜尋目錄
 
 ### [函式庫/<br>Libraries/](Libraries/)
 專案使用的第三方函式庫搜尋目錄
