@@ -7,9 +7,9 @@ rem echo "test"
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 rem Find Java
-rem set JAVA_HOME=
-rem for /f %%a in ('find_java.exe -s') do set JAVA_HOME=%%a
-rem if not defined JAVA_HOME goto ERROR_NOJAVA
+set JAVA_HOME=
+for /f %%a in ('find_java.exe -s') do set JAVA_HOME=%%a
+if not defined JAVA_HOME goto ERROR_NOJAVA
 
 cls
 rem 重新啟動adb
@@ -48,10 +48,8 @@ adb -d backup -noapk jp.naver.line.android -f db.ab
 IF ERRORLEVEL 1 goto ERROR_BACKUP
 
 echo 正在取得資料庫的...
-"C:\Program Files\Java\jre7\bin\java" -jar abe.jar unpack db.ab db.tar >> e.log
-IF ERRORLEVEL 1 goto ERROR_JAVA_32
-
-
+%JAVA_HOME% -jar abe.jar unpack db.ab db.tar >> e.log
+IF ERRORLEVEL 1 goto ERROR_ABE_UNPACK
 
 :next1
 tar -xvf db.tar >> e.log
@@ -59,13 +57,13 @@ tar -tf db.tar > db.list
 IF ERRORLEVEL 1 goto ERROR_7Z_ERROR
 
 sqlite3.exe -separator "" -batch apps\jp.naver.line.android\db\naver_line "DELETE FROM setting WHERE key like '%%';"
-del apps\jp.naver.line.android\sp\jp.naver.line.android.settings.xml
 IF ERRORLEVEL 1 goto ERROR_SQLLITE3
 
+del apps\jp.naver.line.android\sp\jp.naver.line.android.settings.xml
 
 cat db.list | pax -wd > new_db.tar
 
-"C:\Program Files\Java\jre7\bin\java" -jar abe.jar pack new_db.tar new_db.ab
+%JAVA_HOME% -jar abe.jar pack new_db.tar new_db.ab
 IF ERRORLEVEL 1 goto ERROR_PACK
 
 :next2
@@ -73,7 +71,7 @@ echo 正在準備還原，請點選螢幕的還原
 adb -d restore new_db.ab
 
 echo 執行成功！
-rem del db.ab
+del db.ab
 del db.list
 del db.tar
 del e.log
@@ -124,6 +122,13 @@ exit
 echo =========================================
 echo 請先安裝Java 7(JRE 7)
 echo 安裝網址：http://www.java.com/zh_TW/download/
+pause
+exit
+
+:ERROR_ABE_UNPACK
+echo =========================================
+echo abe unpack 錯誤
+echo ab檔案 unpack tar錯誤
 pause
 exit
 
@@ -179,10 +184,10 @@ exit
 
 :ERROR_PACK
 echo ==============================
-echo 找不到Java 7 (JRE 7)路徑
-echo 尋找Java 7 (JRE 7) (x86)路徑
-goto PACK64
-
+echo abe pack 錯誤
+echo abe pack to ab檔案錯誤
+pause
+exit
 
 :PACK64
 "C:\Program Files (x86)\Java\jre7\bin\java" -jar abe.jar pack new_db.tar new_db.ab
