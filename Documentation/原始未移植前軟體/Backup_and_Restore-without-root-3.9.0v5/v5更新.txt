@@ -1,9 +1,0 @@
-v5更新
-自動找Java路徑
-加入Adb Driver Install自動尋找adb驅動
-
-v4更新
-更新v3指令錯誤
-
-v3更新
-更新abe.jar
