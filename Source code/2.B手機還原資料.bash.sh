@@ -3,7 +3,7 @@
 ################## Header block ##################
 # Script程式名稱
 # Script Name
-# 	1.A手機備份資料
+# 	2.B手機還原資料
 # 著作權宣告
 # Copyright Declaration
 #	本作品為「[「更新版」LINE 聊天室訊息 免root異機備份 / 還原全攻略(For Android) | 電腦王阿達的3C胡言亂語](http://www.kocpc.com.tw/archives/4209)」的衍伸作品。
@@ -38,31 +38,26 @@ source "$PROGRAM_DIRECTORY/共用程式碼.source.bash.sh"
 
 ######## Included files ended ########
 
+
 ######## Program ########
 # main function, program entry point
 # idea from http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/
 main() {
 	trap print_interrupt_message INT
 	print_software_title "$PROGRAM_NAME"
-
 	restart_adb_daemon
 	wait_for_adb_device
-	
 	detect_and_check_device_information
 	
-	printf "請到手機端螢幕點選「備份我的資料」，但請不要設定任何備份加密密碼！\n"
-	adb -d backup -apk jp.naver.line.android -f backup.ab
-	draw_a_line
+	printf "啟用資料還原程序，請點擊畫面確認\n"
+	adb -d restore backup.ab
 	if [ $? -ne 0 ]; then
-		printf "發生錯誤：在請求 Android® 作業系統進行 LINE 備份作業時發生問題，\n"
+		printf "發生錯誤：在請求 Android® 作業系統進行 LINE 還原                                                                                                                                                                                                                                                                                     作業時發生問題，\n"
 		printf "請確定目前電腦是否只有連接一台 Android® 行動裝置。\n"
 		pause_and_exit 20
 	else
-		printf "備份應已成功完成，請繼續進行下一個步驟。\n"
+		printf "還原應已成功完成。\n"
 	fi
-
-	## 正常結束 script 程式
-	exit 0
 }
 main
 ######## Program ended ########

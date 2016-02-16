@@ -65,3 +65,23 @@ wait_for_adb_device() {
 		printf "偵測到裝置。\n"
 	fi
 }
+
+detect_and_check_device_information() {
+	manufacturer="$(adb -d shell getprop ro.product.manufacturer | tr --delete "\r\n")"
+	model="$(adb -d shell getprop ro.product.model | tr --delete "\r\n")"
+	version="$(adb -d shell getprop ro.build.version.release | tr --delete "\r\n")"
+
+	printf "偵測到的行動裝置細節如下：\n"
+	printf "\t手機型號：$manufacturer $model\n"
+	printf "\tAndroid® 作業系統版本：$version\n"
+
+	if [ "$version" \< "4" ]; then
+		draw_a_line
+		printf "錯誤：本軟體只相容 4.0.X 版以上的 Android® 作業系統版本。"
+		pause_and_exit 10
+	fi
+	
+	pause "如列出來的資訊與您的行動裝置吻合請鍵入 Enter 繼續操作，如不吻合請鍵入 Ctrl-C 結束本程式並移除其他連接到電腦上的 Android® 行動裝置！"
+	draw_a_line
+	
+}
