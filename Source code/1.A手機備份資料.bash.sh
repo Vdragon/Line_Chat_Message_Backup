@@ -43,35 +43,10 @@ source "$PROGRAM_DIRECTORY/共用程式碼.source.bash.sh"
 # idea from http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/
 main() {
 	trap print_interrupt_message INT
-	print_software_title
-	printf "正在重新啟動 Android Debug Bridge(ADB) 服務，請稍候片刻……\n"
-	adb -d kill-server
-	if [ $? -ne 0 ]; then
-		printf "錯誤：執行 adb 命令發生錯誤！\n"
-		printf "請確定 Android SDK Platform-tools 是否有正確安裝並位於您的可執行檔搜索路徑中。\n"
-		pause_and_exit 5
-	fi
+	print_software_title "$PROGRAM_NAME"
 
-	adb -d start-server
-	if [ $? -ne 0 ]; then
-		printf "錯誤：Android Debug Bridge(ADB) 服務啟動失敗！\n"
-		printf "此確定是否無其他程式會用到 Android Debug Bridge 服務預設使用的 5555 連接埠。\n"
-		pause_and_exit 6
-	fi
-
-	printf "偵測是否正確地連接到行動裝置……"
-	adb -d wait-for-device
-	if [ $? -ne 0 ]; then
-		printf "錯誤：Android Debug Bridge(ADB) 服務無法存取行動裝置！\n"
-		printf "請確定：\n"
-		printf "\t* 行動裝置是否已連接電腦\n"
-		printf "\t* 行動裝置的 Android Debug Bridge 驅動程式是否已安裝\n"
-		printf "\t* Android Debug Bridge 服務可以讀寫該 USB 裝置\n"
-		printf "\t* 行動裝置的 USB 除錯模式是否已啟動。\n"
-		pause_and_exit 6
-	else
-		printf "偵測到裝置。\n"
-	fi
+	restart_adb_daemon
+	wait_for_adb_device
 	
 	manufacturer="$(adb -d shell getprop ro.product.manufacturer | tr --delete "\r\n")"
 	model="$(adb -d shell getprop ro.product.model | tr --delete "\r\n")"
