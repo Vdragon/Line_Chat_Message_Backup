@@ -51,7 +51,7 @@ main() {
 	detect_and_check_device_information
 	
 	printf "請到手機端螢幕點選「備份我的資料」，但請不要設定任何備份加密密碼！\n"
-	adb -d backup -apk jp.naver.line.android -f backup.ab
+	adb -d backup -apk jp.naver.line.android -f "Android Backups/jp.naver.line.android.apk.ab"
 	draw_a_line
 	if [ $? -ne 0 ]; then
 		printf "發生錯誤：在請求 Android® 作業系統進行 LINE 備份作業時發生問題，\n"

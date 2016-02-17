@@ -50,7 +50,7 @@ main() {
 	detect_and_check_device_information
 	
 	printf "啟用資料還原程序，請點擊畫面確認\n"
-	adb -d restore backup.ab
+	adb -d restore "Android Backups/jp.naver.line.android.noapk.ab"
 	if [ $? -ne 0 ]; then
 		printf "發生錯誤：在請求 Android® 作業系統進行 LINE 還原                                                                                                                                                                                                                                                                                     作業時發生問題，\n"
 		printf "請確定目前電腦是否只有連接一台 Android® 行動裝置。\n"

@@ -1,0 +1,15 @@
+# Reference:
+# * gitignore(5) manpage
+# * glob(7) manpage
+
+# Ignore all filenames with exception of those starting with "."
+*
+
+# Ignore all filenames starting with "."
+.*
+
+# Don't ignore .gitignore itself
+!.gitignore
+
+# Don't ignore READMEs
+!README*
