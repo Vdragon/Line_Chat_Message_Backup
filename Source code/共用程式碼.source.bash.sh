@@ -24,12 +24,12 @@ print_software_title() {
 	draw_a_line
 }
 
-print_interrupt_message() {
+print_interrupted_message_and_exit() {
 	draw_a_line_with_newline
 	printf "程式提前被終止！\n"
 	printf "有任何問題請至本軟體的議題追蹤系統回報：\n"
 	printf "https://github.com/Vdragon/Line_Chat_Message_Backup/issues\n"
-	exit 0
+	exit 1
 }
 
 restart_adb_daemon() {
@@ -38,14 +38,14 @@ restart_adb_daemon() {
 	if [ $? -ne 0 ]; then
 		printf "錯誤：執行 adb 命令發生錯誤！\n"
 		printf "請確定 Android SDK Platform-tools 是否有正確安裝並位於您的可執行檔搜索路徑中。\n"
-		pause_and_exit 5
+		pause_and_exit 1
 	fi
 
 	adb -d start-server
 	if [ $? -ne 0 ]; then
 		printf "錯誤：Android Debug Bridge(ADB) 服務啟動失敗！\n"
 		printf "此確定是否無其他程式會用到 Android Debug Bridge 服務預設使用的 5555 連接埠。\n"
-		pause_and_exit 6
+		pause_and_exit 1
 	fi
 
 }
@@ -60,7 +60,7 @@ wait_for_adb_device() {
 		printf "\t* 行動裝置的 Android Debug Bridge 驅動程式是否已安裝\n"
 		printf "\t* Android Debug Bridge 服務可以讀寫該 USB 裝置\n"
 		printf "\t* 行動裝置的 USB 除錯模式是否已啟動。\n"
-		pause_and_exit 6
+		pause_and_exit 1
 	else
 		printf "偵測到裝置。\n"
 	fi
@@ -78,7 +78,7 @@ detect_and_check_device_information() {
 	if [ "$version" \< "4" ]; then
 		draw_a_line
 		printf "錯誤：本軟體只相容 4.0.X 版以上的 Android® 作業系統版本。"
-		pause_and_exit 10
+		pause_and_exit 1
 	fi
 	
 	pause "如列出來的資訊與您的行動裝置吻合請鍵入 Enter 繼續操作，如不吻合請鍵入 Ctrl-C 結束本程式並移除其他連接到電腦上的 Android® 行動裝置！"

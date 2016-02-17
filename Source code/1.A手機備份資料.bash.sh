@@ -15,6 +15,8 @@
 # Return Value Definition
 # 	0
 # 		正常結束
+# 	1
+# 		不正常結束
 # 已知問題
 # Known Issues
 # 	Known issues is now tracked on GitHub
@@ -42,7 +44,7 @@ source "$PROGRAM_DIRECTORY/共用程式碼.source.bash.sh"
 # main function, program entry point
 # idea from http://www.kfirlavi.com/blog/2012/11/14/defensive-bash-programming/
 main() {
-	trap print_interrupt_message INT
+	trap print_interrupted_message_and_exit INT
 	print_software_title "$PROGRAM_NAME"
 
 	restart_adb_daemon
@@ -56,7 +58,7 @@ main() {
 	if [ $? -ne 0 ]; then
 		printf "發生錯誤：在請求 Android® 作業系統進行 LINE 備份作業時發生問題，\n"
 		printf "請確定目前電腦是否只有連接一台 Android® 行動裝置。\n"
-		pause_and_exit 20
+		pause_and_exit 1
 	else
 		printf "備份應已成功完成，請繼續進行下一個步驟。\n"
 	fi
