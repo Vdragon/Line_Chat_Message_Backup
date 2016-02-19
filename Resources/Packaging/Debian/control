@@ -1,0 +1,23 @@
+Source: line-chat-message-backup
+Section: misc
+Priority: optional
+Homepage: https://github.com/Vdragon/Line_Chat_Message_Backup
+Standards-Version: 3.9.2
+
+Package: line-chat-message-backup
+Version: 0.0.0-still-developing
+Maintainer: Ｖ字龍 <Vdragon.Taiwan@gmail.com>
+# Pre-Depends: <comma-separated list of packages>
+Depends: tar, pax, sqlite, default-jre, android-tools-adb
+# Recommends: <comma-separated list of packages>
+Suggests: sqlitebrowser
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+Architecture: all
+# Copyright: FairUse
+# Changelog: <changelog file; defaults to a generic changelog>
+# Readme: <README.Debian file; defaults to a generic one>
+# Extra-Files: <comma-separated list of additional files for the doc directory>
+# Files: <pair of space-separated paths; First is file to include, second is destination>
+#  <more pairs, if there's more than one file to include. Notice the starting space>
+Description: 用來備份 LINE 聊天訊息的軟體
